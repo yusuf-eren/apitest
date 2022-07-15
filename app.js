@@ -26,7 +26,7 @@ app.use(express.json());
 
 app.get("/", async (req, res) => {
     const test = "1234 Rendered2"
-    res.render('index.ejs', {
+    res.render('index', {
         test
     })
 });
