@@ -29,10 +29,21 @@ app.get("/", (req, res) => {
 });
 
 app.post("/location", async (req, res, next) => {
+  try {
   const test = req.body;
-  await Location.create(req.body);
-  console.log(test);
-  next();
+  if(test) {
+    await Location.create(req.body);
+    console.log(test);
+    next();
+  }
+  }
+  catch(err) {
+    console.log(err)
+    res.status(403).json({
+      status: 'fail',
+      err
+    })
+  }
 });
 
 app.listen(process.env.PORT || 3000, () => {
