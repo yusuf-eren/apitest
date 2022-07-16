@@ -35,7 +35,7 @@ app.post("/location", async (req, res) => {
     console.log(test)
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`http://localhost:${PORT}`);
+
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`http://localhost`);
 });
