@@ -25,15 +25,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.render('index')
+  res.render("index");
 });
 
 app.post("/location", async (req, res) => {
-    const test = req.body
-    await Location.create(req.body)
-    console.log(test)
+  const test = req.body;
+  await Location.create(req.body);
+  console.log(test);
+  next();
 });
-
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`http://localhost`);
