@@ -26,9 +26,7 @@ app.use(express.json());
 
 app.get("/", async (req, res) => {
     const test = "1234 Rendered2"
-    res.render('index', {
-        test
-    })
+    res.render('index')
 });
 
 app.post("/location", async (req, res) => {
