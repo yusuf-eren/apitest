@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.post("/location", async (req, res) => {
+app.post("/location", async (req, res, next) => {
   const test = req.body;
   await Location.create(req.body);
   console.log(test);
