@@ -24,8 +24,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get("/", async (req, res) => {
-    const test = "1234 Rendered2"
+app.get("/", (req, res) => {
     res.render('index')
 });
 
