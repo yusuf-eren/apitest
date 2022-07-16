@@ -34,7 +34,10 @@ app.post("/location", async (req, res, next) => {
   if(test) {
     await Location.create(req.body);
     console.log(test);
-    next();
+    res.status(200).json({
+      status: "success",
+      test
+    })
   }
   }
   catch(err) {
