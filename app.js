@@ -30,22 +30,25 @@ app.get("/", (req, res) => {
 
 app.post("/location", async (req, res, next) => {
   try {
-  const test = req.body;
-  if(test) {
-    await Location.create(req.body);
-    console.log(test);
-    res.status(200).json({
-      status: "success",
-      test
-    })
-  }
-  }
-  catch(err) {
-    console.log(err)
+    const driver_id = req.body.driver_id;
+    const test = req.body;
+    const isc = await Location.findById({ _id: driver_id });
+    if (!isc) {
+      await Location.create(req.body);
+      console.log(test);
+      res.status(200).json({
+        status: "success",
+        test,
+      });
+    } else if (isc) {
+      await Location.findOneAndUpdate();
+    }
+  } catch (err) {
+    console.log(err);
     res.status(403).json({
-      status: 'fail',
-      err
-    })
+      status: "fail",
+      err,
+    });
   }
 });
 
