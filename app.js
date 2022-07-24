@@ -41,7 +41,7 @@ app.post("/location", async (req, res, next) => {
         test,
       });
     } else if (isc) {
-      await Location.findOneAndUpdate();
+      await isc.update({longitude:req.body.longitude},{longitude:req.body.latitude})
     }
   } catch (err) {
     console.log(err);
